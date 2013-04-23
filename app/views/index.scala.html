@@ -1,24 +1,13 @@
 @(message: String, messages: List[String], ids: List[Long], taskForm: Form[String])
-@import helper._
 
-@main("Welcome to Play 2.1") {
+@main("List") {
 
-    Hello world!
-    <ul>
-        @ids.map { id =>
-            <li>
-                @form(routes.Application.deleteTask(id)) {
-                    <input type="submit" value="delete" />
-                }
+    <div ng-controller="BookListController">
+        <ul>
+            <li ng-repeat="book in books.list">
+                    {{book.id}} :: {{book.title}}
             </li>
-        }
-    </ul>
-
-    @form(routes.Application.newTask) {
-
-        @inputText(taskForm("label"))
-
-        <input type="submit" value="Create">
-
-    }
+        </ul>
+            Showing {{books.count}} book(s) from total: {{books.total}}
+    </div>
 }

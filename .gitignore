@@ -14,6 +14,7 @@ log
 logs
 modules
 precompiled
+atlassian-ide-plugin.xml
 project/project
 project/target
 target
